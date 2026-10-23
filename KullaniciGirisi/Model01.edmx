@@ -1,0 +1,1271 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ERPModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ERP.dbo.denemekaydet' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="denemekaydet">
+          <Key>
+            <PropertyRef Name="RaporSiparisID" />
+          </Key>
+          <Property Name="RaporSiparisID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RaporNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="RaporAdi" Type="nvarchar" MaxLength="50" />
+          <Property Name="GroupAdi" Type="nvarchar" MaxLength="50" />
+          <Property Name="FrxDosyaYolu" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="GirisSistemiKullanicilar">
+          <Key>
+            <PropertyRef Name="KullaniciID" />
+          </Key>
+          <Property Name="KullaniciID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KullaniciKodu" Type="nvarchar" MaxLength="50" />
+          <Property Name="KullaniciAdi" Type="nvarchar" MaxLength="50" />
+          <Property Name="Sifre" Type="nvarchar" MaxLength="50" />
+          <Property Name="KullanimdaMi" Type="bit" />
+          <Property Name="YetkiliDuzeyi" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Siparis">
+          <Key>
+            <PropertyRef Name="SiparisID" />
+          </Key>
+          <Property Name="SiparisID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SiparisNo" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="SiparisTuru" Type="nvarchar" MaxLength="150" />
+          <Property Name="CariNo" Type="nvarchar" MaxLength="100" />
+          <Property Name="SiparisiAlan" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SiparisiVeren" Type="nvarchar" MaxLength="100" />
+          <Property Name="DuzenlemeTarihi" Type="datetime" />
+          <Property Name="StnSiparisNo" Type="nvarchar" MaxLength="100" />
+          <Property Name="FiyatListeNo" Type="nvarchar" MaxLength="100" />
+          <Property Name="Aciklama" Type="nvarchar" MaxLength="300" />
+          <Property Name="AlinmaTarihi" Type="datetime" />
+          <Property Name="AkreditifNo" Type="nvarchar" MaxLength="100" />
+          <Property Name="OzelKod" Type="nvarchar" MaxLength="100" />
+          <Property Name="EtiketNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="HamEtiketNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="DisSiparis" Type="bit" />
+          <Property Name="VadeGunu" Type="int" />
+        </EntityType>
+        <EntityType Name="SiparisCariNo">
+          <Key>
+            <PropertyRef Name="CariNoID" />
+          </Key>
+          <Property Name="CariNoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CariNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="CariAdi" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SiparisDetay">
+          <Key>
+            <PropertyRef Name="SiparisDetayID" />
+          </Key>
+          <Property Name="SiparisDetayID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="SiparisNo" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SN" Type="int" />
+          <Property Name="StokTuru" Type="nvarchar" MaxLength="50" />
+          <Property Name="StokKodu" Type="nvarchar" MaxLength="50" />
+          <Property Name="StokAdi" Type="nvarchar" MaxLength="150" />
+          <Property Name="LotNo" Type="nvarchar" MaxLength="100" />
+          <Property Name="Miktar1" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="MiktarBirimi1" Type="nvarchar" MaxLength="20" />
+          <Property Name="Miktar2" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="MiktarBirimi2" Type="nvarchar" MaxLength="20" />
+          <Property Name="Miktar3" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="MiktarBirimi3" Type="nvarchar" MaxLength="20" />
+          <Property Name="Fiyat1" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="FiyatKuru1" Type="nvarchar" MaxLength="20" />
+          <Property Name="Fiyat2" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="FiyatKuru2" Type="nvarchar" MaxLength="20" />
+          <Property Name="Fiyat3" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="FiyatKuru3" Type="nvarchar" MaxLength="20" />
+          <Property Name="Tutar" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="FiyatOB" Type="nvarchar" MaxLength="20" />
+          <Property Name="Kdv" Type="decimal" Precision="3" Scale="2" />
+          <Property Name="PLGormesin" Type="bit" />
+          <Property Name="SKarMik" Type="int" />
+          <Property Name="Tol" Type="int" />
+          <Property Name="STol" Type="int" />
+          <Property Name="Isk" Type="int" />
+          <Property Name="Barkod" Type="nvarchar" MaxLength="100" />
+          <Property Name="IslemGrubu" Type="nvarchar" MaxLength="50" />
+          <Property Name="UreticiKodu" Type="nvarchar" MaxLength="50" />
+          <Property Name="KoleksiyonKodu" Type="nvarchar" MaxLength="50" />
+          <Property Name="OdemeSekli" Type="nvarchar" MaxLength="50" />
+          <Property Name="PaketlemeSekli" Type="nvarchar" MaxLength="50" />
+          <Property Name="IlıskiliSipNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="Aciklama" Type="nvarchar" MaxLength="300" />
+          <Property Name="PlanlamaUyari" Type="nvarchar" MaxLength="300" />
+          <Property Name="Termin" Type="datetime" />
+          <Property Name="Hafta1" Type="int" />
+          <Property Name="PlTermini" Type="datetime" />
+          <Property Name="Hafta2" Type="int" />
+          <Property Name="TebdilNedeni" Type="nvarchar" MaxLength="100" />
+          <Property Name="UreticiAdi" Type="nvarchar" MaxLength="50" />
+          <Property Name="NakliyeSekli" Type="nvarchar" MaxLength="50" />
+          <Property Name="TeslimSekli" Type="nvarchar" MaxLength="50" />
+          <Property Name="TebdilPartiNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="IliskiliSipSNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="Ilave" Type="bit" />
+          <Property Name="Tebdil" Type="bit" />
+          <Property Name="EtiketBilgi1" Type="nvarchar" MaxLength="50" />
+          <Property Name="EtiketBilgi2" Type="nvarchar" MaxLength="50" />
+          <Property Name="EtiketBilgi3" Type="nvarchar" MaxLength="50" />
+          <Property Name="EtiketBilgi4" Type="nvarchar" MaxLength="50" />
+          <Property Name="EtiketBilgi5" Type="nvarchar" MaxLength="50" />
+          <Property Name="HPS" Type="int" />
+          <Property Name="AgirlikTol" Type="int" />
+          <Property Name="VadeGunu" Type="int" />
+          <Property Name="UretimRotaNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="STN_SİP_SIRA_NO" Type="nvarchar" MaxLength="100" />
+          <Property Name="Kursun" Type="nvarchar" MaxLength="100" />
+          <Property Name="Kusak" Type="nvarchar" MaxLength="100" />
+          <Property Name="SarimSekli" Type="nvarchar" MaxLength="100" />
+          <Property Name="Talimat" Type="nvarchar" MaxLength="100" />
+          <Property Name="SevkSekli" Type="nvarchar" MaxLength="100" />
+          <Property Name="PosetAdedi" Type="int" />
+          <Property Name="EkIslem1" Type="nvarchar" MaxLength="100" />
+          <Property Name="EkIslem2" Type="nvarchar" MaxLength="100" />
+          <Property Name="Aksesuar" Type="nvarchar" MaxLength="100" />
+          <Property Name="OrtaBolme" Type="nvarchar" MaxLength="100" />
+          <Property Name="MusteriArpeEni" Type="nvarchar" MaxLength="100" />
+          <Property Name="MusteriStokKodu" Type="nvarchar" MaxLength="50" />
+          <Property Name="MusteriVaryant" Type="nvarchar" MaxLength="50" />
+          <Property Name="StokKartiIslemi" Type="nvarchar" MaxLength="50" />
+          <Property Name="Onaylan" Type="nvarchar" MaxLength="50" />
+          <Property Name="OnayTarihi" Type="datetime" />
+          <Property Name="SevkTolerans" Type="nvarchar" MaxLength="50" />
+          <Property Name="StoktanKarsilananMiktar" Type="nvarchar" MaxLength="50" />
+          <Property Name="RotaNo" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ERP.dbo.SiparisDetay_StokAdiView' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="SiparisDetay_StokAdiView">
+          <Key>
+            <PropertyRef Name="SiparisDetayLotNoID" />
+          </Key>
+          <Property Name="SiparisDetayLotNoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SiparisEtiketNo">
+          <Key>
+            <PropertyRef Name="EtiketNoID" />
+          </Key>
+          <Property Name="EtiketNoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EtiketNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="RaporAdi" Type="nvarchar" MaxLength="100" />
+          <Property Name="RaporModulAdi" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="SiparisFiyatListe">
+          <Key>
+            <PropertyRef Name="FiyatListeNo" />
+          </Key>
+          <Property Name="FiyatListeNo" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="FiyatListeAdi" Type="nvarchar" MaxLength="100" />
+          <Property Name="NakliyeSekli" Type="nvarchar" MaxLength="100" />
+          <Property Name="OdemeSekli" Type="nvarchar" MaxLength="100" />
+          <Property Name="TeslimSekli" Type="nvarchar" MaxLength="100" />
+          <Property Name="Aciklama" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="SiparisHamEtiketNo">
+          <Key>
+            <PropertyRef Name="HamEtiketNoID" />
+          </Key>
+          <Property Name="HamEtiketNoID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HamEtiketNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="HamRaporAdi" Type="nvarchar" MaxLength="200" />
+          <Property Name="HamRaporModulAdi" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="siparisOzelAlanDegerleri">
+          <Key>
+            <PropertyRef Name="OzelAlanID" />
+          </Key>
+          <Property Name="OzelAlanID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SiparisNo" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="siparisSiraNo" Type="int" Nullable="false" />
+          <Property Name="ozelAlan1Degeri" Type="nvarchar" MaxLength="50" />
+          <Property Name="ozelAlan2Degeri" Type="nvarchar" MaxLength="50" />
+          <Property Name="ozelAlan3Degeri" Type="nvarchar" MaxLength="50" />
+          <Property Name="ozelAlan4Degeri" Type="nvarchar" MaxLength="50" />
+          <Property Name="ozelAlan5Degeri" Type="nvarchar" MaxLength="50" />
+          <Property Name="ozelAlan6Degeri" Type="nvarchar" MaxLength="50" />
+          <Property Name="ozelAlan7Degeri" Type="nvarchar" MaxLength="50" />
+          <Property Name="ozelAlan8Degeri" Type="nvarchar" MaxLength="50" />
+          <Property Name="ozelAlan9Degeri" Type="nvarchar" MaxLength="50" />
+          <Property Name="ozelAlan10Degeri" Type="nvarchar" MaxLength="50" />
+          <Property Name="ozelAlan11Degeri" Type="nvarchar" MaxLength="50" />
+          <Property Name="ozelAlan12Degeri" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SiparisozelAlanTanimlari">
+          <Key>
+            <PropertyRef Name="ozelAlanTanimID" />
+          </Key>
+          <Property Name="ozelAlanTanimID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StokTuru" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ozelAlan1adi" Type="nvarchar" MaxLength="50" />
+          <Property Name="ozelAlan2Adi" Type="nvarchar" MaxLength="50" />
+          <Property Name="ozelAlan3Adi" Type="nvarchar" MaxLength="50" />
+          <Property Name="ozelAlan4Adi" Type="nvarchar" MaxLength="50" />
+          <Property Name="ozelAlan5Adi" Type="nvarchar" MaxLength="50" />
+          <Property Name="ozelAlan6Adi" Type="nvarchar" MaxLength="50" />
+          <Property Name="ozelAlan7Adi" Type="nvarchar" MaxLength="50" />
+          <Property Name="ozelAlan8Adi" Type="nvarchar" MaxLength="50" />
+          <Property Name="ozelAlan9Adi" Type="nvarchar" MaxLength="50" />
+          <Property Name="ozelAlan10Adi" Type="nvarchar" MaxLength="50" />
+          <Property Name="ozelAlan11Adi" Type="nvarchar" MaxLength="50" />
+          <Property Name="ozelAlan12Adi" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="SiparisSiparisiAlan">
+          <Key>
+            <PropertyRef Name="SiparisiAlanID" />
+          </Key>
+          <Property Name="SiparisiAlanID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SiparisiAlan" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="SiparisiAlanAdi" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="StokOzelAlanDegerleriTablosu">
+          <Key>
+            <PropertyRef Name="StokOzelAlanDegerleriID" />
+          </Key>
+          <Property Name="StokOzelAlanDegerleriID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StokKodu" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="StokOzelAlanDegeri1" Type="nvarchar" MaxLength="50" />
+          <Property Name="StokOzelAlanDegeri2" Type="nvarchar" MaxLength="50" />
+          <Property Name="StokOzelAlanDegeri3" Type="nvarchar" MaxLength="50" />
+          <Property Name="StokOzelAlanDegeri4" Type="nvarchar" MaxLength="50" />
+          <Property Name="StokOzelAlanDegeri5" Type="nvarchar" MaxLength="50" />
+          <Property Name="StokOzelAlanDegeri6" Type="nvarchar" MaxLength="50" />
+          <Property Name="StokOzelAlanDegeri7" Type="nvarchar" MaxLength="50" />
+          <Property Name="StokOzelAlanDegeri8" Type="nvarchar" MaxLength="50" />
+          <Property Name="StokOzelAlanDegeri9" Type="nvarchar" MaxLength="50" />
+          <Property Name="StokOzelAlanDegeri10" Type="nvarchar" MaxLength="50" />
+          <Property Name="StokOzelAlanDegeri11" Type="nvarchar" MaxLength="50" />
+          <Property Name="StokOzelAlanDegeri12" Type="nvarchar" MaxLength="50" />
+          <Property Name="StokOzelAlanDegeri13" Type="nvarchar" MaxLength="50" />
+          <Property Name="StokOzelAlanDegeri14" Type="nvarchar" MaxLength="50" />
+          <Property Name="StokOzelAlanDegeri15" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="StokOzelAlanTanimlariTablosu">
+          <Key>
+            <PropertyRef Name="StokOzelAlanTanimlariID" />
+          </Key>
+          <Property Name="StokOzelAlanTanimlariID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StokTuru" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="StokOzelAlanTanimi1" Type="nvarchar" MaxLength="50" />
+          <Property Name="StokOzelAlanTanimi2" Type="nvarchar" MaxLength="50" />
+          <Property Name="StokOzelAlanTanimi3" Type="nvarchar" MaxLength="50" />
+          <Property Name="StokOzelAlanTanimi4" Type="nvarchar" MaxLength="50" />
+          <Property Name="StokOzelAlanTanimi5" Type="nvarchar" MaxLength="50" />
+          <Property Name="StokOzelAlanTanimi6" Type="nvarchar" MaxLength="50" />
+          <Property Name="StokOzelAlanTanimi7" Type="nvarchar" MaxLength="50" />
+          <Property Name="StokOzelAlanTanimi8" Type="nvarchar" MaxLength="50" />
+          <Property Name="StokOzelAlanTanimi9" Type="nvarchar" MaxLength="50" />
+          <Property Name="StokOzelAlanTanimi10" Type="nvarchar" MaxLength="50" />
+          <Property Name="StokOzelAlanTanimi11" Type="nvarchar" MaxLength="50" />
+          <Property Name="StokOzelAlanTanimi12" Type="nvarchar" MaxLength="50" />
+          <Property Name="StokOzelAlanTanimi13" Type="nvarchar" MaxLength="50" />
+          <Property Name="StokOzelAlanTanimi14" Type="nvarchar" MaxLength="50" />
+          <Property Name="StokOzelAlanTanimi15" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="StokTablosu">
+          <Key>
+            <PropertyRef Name="StokID" />
+          </Key>
+          <Property Name="StokID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StokKodu" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="StokTuru" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="LotNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="StokGrubu" Type="nvarchar" MaxLength="50" />
+          <Property Name="StokAdi" Type="nvarchar" MaxLength="50" />
+          <Property Name="Barkod" Type="nvarchar" MaxLength="50" />
+          <Property Name="StokMuhasebeGrubu" Type="nvarchar" MaxLength="50" />
+          <Property Name="Kullanimda" Type="bit" />
+          <Property Name="TicariStokKodu" Type="nvarchar" MaxLength="50" />
+          <Property Name="StokSinifi" Type="nvarchar" MaxLength="50" />
+          <Property Name="HamStokKodu" Type="nvarchar" MaxLength="50" />
+          <Property Name="ReferansStokKodu" Type="nvarchar" MaxLength="50" />
+          <Property Name="KopyalandigiSKodu" Type="nvarchar" MaxLength="50" />
+          <Property Name="PartiBuyuklugu" Type="nvarchar" MaxLength="50" />
+          <Property Name="SipTolerans" Type="nvarchar" MaxLength="50" />
+          <Property Name="PartiKatsayisi" Type="nvarchar" MaxLength="50" />
+          <Property Name="KaliteKodu" Type="nvarchar" MaxLength="50" />
+          <Property Name="MinMaxStokDuzeyi" Type="nvarchar" MaxLength="50" />
+          <Property Name="OnSure12" Type="int" />
+          <Property Name="En" Type="int" />
+          <Property Name="Boy" Type="int" />
+          <Property Name="Yukseklik" Type="int" />
+          <Property Name="DaraTipNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="Aciklama" Type="nvarchar" MaxLength="50" />
+          <Property Name="Uyari" Type="nvarchar" MaxLength="50" />
+          <Property Name="UretimRotaNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="MaliyetRotaNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="SonIslemTuru" Type="nvarchar" MaxLength="50" />
+          <Property Name="SatinalmaTeminSekli" Type="nvarchar" MaxLength="50" />
+          <Property Name="TedarikciTakvimi" Type="nvarchar" MaxLength="50" />
+          <Property Name="UretimLotoNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="PaketlemeSekli" Type="nvarchar" MaxLength="50" />
+          <Property Name="OBr1" Type="nvarchar" MaxLength="50" />
+          <Property Name="OBr2" Type="nvarchar" MaxLength="50" />
+          <Property Name="OBr3" Type="nvarchar" MaxLength="50" />
+          <Property Name="Fiyat" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="DovizBr" Type="nvarchar" MaxLength="50" />
+          <Property Name="KDV" Type="decimal" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityType Name="StokTuruTablosu">
+          <Key>
+            <PropertyRef Name="StokTuruID" />
+          </Key>
+          <Property Name="StokTuruID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StokTuru" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="StokTurAdi" Type="nvarchar" MaxLength="50" />
+          <Property Name="StokTurGrubu" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ERP.dbo.View_SiparisListesi' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="View_SiparisListesi">
+          <Key>
+            <PropertyRef Name="SiparisNo" />
+          </Key>
+          <Property Name="SiparisNo" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="SN" Type="int" />
+          <Property Name="StokTuru" Type="nvarchar" MaxLength="50" />
+          <Property Name="StokKodu" Type="nvarchar" MaxLength="50" />
+          <Property Name="StokAdi" Type="nvarchar" MaxLength="150" />
+          <Property Name="MusteriStokKodu" Type="nvarchar" MaxLength="50" />
+          <Property Name="MusteriVaryant" Type="nvarchar" MaxLength="50" />
+          <Property Name="Miktar1" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="MiktarBirimi1" Type="nvarchar" MaxLength="20" />
+          <Property Name="StokKartiIslemi" Type="nvarchar" MaxLength="50" />
+          <Property Name="Onaylan" Type="nvarchar" MaxLength="50" />
+          <Property Name="OnayTarihi" Type="datetime" />
+          <Property Name="Kursun" Type="nvarchar" MaxLength="100" />
+          <Property Name="Kusak" Type="nvarchar" MaxLength="100" />
+          <Property Name="SarimSekli" Type="nvarchar" MaxLength="100" />
+          <Property Name="Talimat" Type="nvarchar" MaxLength="100" />
+          <Property Name="SevkSekli" Type="nvarchar" MaxLength="100" />
+          <Property Name="ozelAlan3Adi" Type="nvarchar" MaxLength="50" />
+          <Property Name="PosetAdedi" Type="int" />
+          <Property Name="ozelAlan4Adi" Type="nvarchar" MaxLength="50" />
+          <Property Name="ozelAlan5Adi" Type="nvarchar" MaxLength="50" />
+          <Property Name="ozelAlan6Adi" Type="nvarchar" MaxLength="50" />
+          <Property Name="PlTermini" Type="datetime" />
+          <Property Name="PlanlamaUyari" Type="nvarchar" MaxLength="300" />
+          <Property Name="UreticiAdi" Type="nvarchar" MaxLength="50" />
+          <Property Name="SevkTolerans" Type="nvarchar" MaxLength="50" />
+          <Property Name="StoktanKarsilananMiktar" Type="nvarchar" MaxLength="50" />
+          <Property Name="Tebdil" Type="bit" />
+          <Property Name="TebdilPartiNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="Termin" Type="datetime" />
+          <Property Name="TeslimSekli" Type="nvarchar" MaxLength="50" />
+          <Property Name="Tol" Type="int" />
+          <Property Name="Tutar" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="Aciklama" Type="nvarchar" MaxLength="300" />
+          <Property Name="VadeGunu" Type="int" />
+          <Property Name="RotaNo" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ERP.dbo.View_SiparisSecenekler' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="View_SiparisSecenekler">
+          <Key>
+            <PropertyRef Name="SiparisNo" />
+          </Key>
+          <Property Name="SiparisNo" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="SiparisTuru" Type="nvarchar" MaxLength="150" />
+          <Property Name="CariNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="CariAdi" Type="nvarchar" MaxLength="50" />
+          <Property Name="DuzenlemeTarihi" Type="datetime" />
+          <Property Name="SiparisiAlan" Type="nvarchar" MaxLength="50" />
+          <Property Name="SiparisiAlanAdi" Type="nvarchar" MaxLength="50" />
+          <Property Name="SiparisiVeren" Type="nvarchar" MaxLength="100" />
+          <Property Name="AkreditifNo" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityContainer Name="ERPModelStoreContainer">
+          <EntitySet Name="GirisSistemiKullanicilar" EntityType="Self.GirisSistemiKullanicilar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Siparis" EntityType="Self.Siparis" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SiparisCariNo" EntityType="Self.SiparisCariNo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SiparisDetay" EntityType="Self.SiparisDetay" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SiparisEtiketNo" EntityType="Self.SiparisEtiketNo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SiparisFiyatListe" EntityType="Self.SiparisFiyatListe" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SiparisHamEtiketNo" EntityType="Self.SiparisHamEtiketNo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="siparisOzelAlanDegerleri" EntityType="Self.siparisOzelAlanDegerleri" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SiparisozelAlanTanimlari" EntityType="Self.SiparisozelAlanTanimlari" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SiparisSiparisiAlan" EntityType="Self.SiparisSiparisiAlan" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StokOzelAlanDegerleriTablosu" EntityType="Self.StokOzelAlanDegerleriTablosu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StokOzelAlanTanimlariTablosu" EntityType="Self.StokOzelAlanTanimlariTablosu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StokTablosu" EntityType="Self.StokTablosu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StokTuruTablosu" EntityType="Self.StokTuruTablosu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="denemekaydet" EntityType="Self.denemekaydet" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [denemekaydet].[RaporSiparisID] AS [RaporSiparisID], 
+    [denemekaydet].[RaporNo] AS [RaporNo], 
+    [denemekaydet].[RaporAdi] AS [RaporAdi], 
+    [denemekaydet].[GroupAdi] AS [GroupAdi], 
+    [denemekaydet].[FrxDosyaYolu] AS [FrxDosyaYolu]
+    FROM [dbo].[denemekaydet] AS [denemekaydet]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="SiparisDetay_StokAdiView" EntityType="Self.SiparisDetay_StokAdiView" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [SiparisDetay_StokAdiView].[SiparisDetayLotNoID] AS [SiparisDetayLotNoID]
+    FROM [dbo].[SiparisDetay_StokAdiView] AS [SiparisDetay_StokAdiView]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="View_SiparisListesi" EntityType="Self.View_SiparisListesi" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_SiparisListesi].[SiparisNo] AS [SiparisNo], 
+    [View_SiparisListesi].[SN] AS [SN], 
+    [View_SiparisListesi].[StokTuru] AS [StokTuru], 
+    [View_SiparisListesi].[StokKodu] AS [StokKodu], 
+    [View_SiparisListesi].[StokAdi] AS [StokAdi], 
+    [View_SiparisListesi].[MusteriStokKodu] AS [MusteriStokKodu], 
+    [View_SiparisListesi].[MusteriVaryant] AS [MusteriVaryant], 
+    [View_SiparisListesi].[Miktar1] AS [Miktar1], 
+    [View_SiparisListesi].[MiktarBirimi1] AS [MiktarBirimi1], 
+    [View_SiparisListesi].[StokKartiIslemi] AS [StokKartiIslemi], 
+    [View_SiparisListesi].[Onaylan] AS [Onaylan], 
+    [View_SiparisListesi].[OnayTarihi] AS [OnayTarihi], 
+    [View_SiparisListesi].[Kursun] AS [Kursun], 
+    [View_SiparisListesi].[Kusak] AS [Kusak], 
+    [View_SiparisListesi].[SarimSekli] AS [SarimSekli], 
+    [View_SiparisListesi].[Talimat] AS [Talimat], 
+    [View_SiparisListesi].[SevkSekli] AS [SevkSekli], 
+    [View_SiparisListesi].[ozelAlan3Adi] AS [ozelAlan3Adi], 
+    [View_SiparisListesi].[PosetAdedi] AS [PosetAdedi], 
+    [View_SiparisListesi].[ozelAlan4Adi] AS [ozelAlan4Adi], 
+    [View_SiparisListesi].[ozelAlan5Adi] AS [ozelAlan5Adi], 
+    [View_SiparisListesi].[ozelAlan6Adi] AS [ozelAlan6Adi], 
+    [View_SiparisListesi].[PlTermini] AS [PlTermini], 
+    [View_SiparisListesi].[PlanlamaUyari] AS [PlanlamaUyari], 
+    [View_SiparisListesi].[UreticiAdi] AS [UreticiAdi], 
+    [View_SiparisListesi].[SevkTolerans] AS [SevkTolerans], 
+    [View_SiparisListesi].[StoktanKarsilananMiktar] AS [StoktanKarsilananMiktar], 
+    [View_SiparisListesi].[Tebdil] AS [Tebdil], 
+    [View_SiparisListesi].[TebdilPartiNo] AS [TebdilPartiNo], 
+    [View_SiparisListesi].[Termin] AS [Termin], 
+    [View_SiparisListesi].[TeslimSekli] AS [TeslimSekli], 
+    [View_SiparisListesi].[Tol] AS [Tol], 
+    [View_SiparisListesi].[Tutar] AS [Tutar], 
+    [View_SiparisListesi].[Aciklama] AS [Aciklama], 
+    [View_SiparisListesi].[VadeGunu] AS [VadeGunu], 
+    [View_SiparisListesi].[RotaNo] AS [RotaNo]
+    FROM [dbo].[View_SiparisListesi] AS [View_SiparisListesi]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="View_SiparisSecenekler" EntityType="Self.View_SiparisSecenekler" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [View_SiparisSecenekler].[SiparisNo] AS [SiparisNo], 
+    [View_SiparisSecenekler].[SiparisTuru] AS [SiparisTuru], 
+    [View_SiparisSecenekler].[CariNo] AS [CariNo], 
+    [View_SiparisSecenekler].[CariAdi] AS [CariAdi], 
+    [View_SiparisSecenekler].[DuzenlemeTarihi] AS [DuzenlemeTarihi], 
+    [View_SiparisSecenekler].[SiparisiAlan] AS [SiparisiAlan], 
+    [View_SiparisSecenekler].[SiparisiAlanAdi] AS [SiparisiAlanAdi], 
+    [View_SiparisSecenekler].[SiparisiVeren] AS [SiparisiVeren], 
+    [View_SiparisSecenekler].[AkreditifNo] AS [AkreditifNo]
+    FROM [dbo].[View_SiparisSecenekler] AS [View_SiparisSecenekler]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ERPModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="SiparisFiyatListe">
+          <Key>
+            <PropertyRef Name="FiyatListeNo" />
+          </Key>
+          <Property Name="FiyatListeNo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FiyatListeAdi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="NakliyeSekli" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="OdemeSekli" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="TeslimSekli" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Aciklama" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="siparisOzelAlanDegerleri">
+          <Key>
+            <PropertyRef Name="OzelAlanID" />
+          </Key>
+          <Property Name="OzelAlanID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SiparisNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="siparisSiraNo" Type="Int32" Nullable="false" />
+          <Property Name="ozelAlan1Degeri" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ozelAlan2Degeri" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ozelAlan3Degeri" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ozelAlan4Degeri" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ozelAlan5Degeri" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ozelAlan6Degeri" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ozelAlan7Degeri" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ozelAlan8Degeri" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ozelAlan9Degeri" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ozelAlan10Degeri" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ozelAlan11Degeri" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ozelAlan12Degeri" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="SiparisozelAlanTanimlari">
+          <Key>
+            <PropertyRef Name="ozelAlanTanimID" />
+          </Key>
+          <Property Name="ozelAlanTanimID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StokTuru" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ozelAlan1adi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ozelAlan2Adi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ozelAlan3Adi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ozelAlan4Adi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ozelAlan5Adi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ozelAlan6Adi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ozelAlan7Adi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ozelAlan8Adi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ozelAlan9Adi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ozelAlan10Adi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ozelAlan11Adi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ozelAlan12Adi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="StokOzelAlanDegerleriTablosu">
+          <Key>
+            <PropertyRef Name="StokOzelAlanDegerleriID" />
+          </Key>
+          <Property Name="StokOzelAlanDegerleriID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StokKodu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="StokOzelAlanDegeri1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StokOzelAlanDegeri2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StokOzelAlanDegeri3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StokOzelAlanDegeri4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StokOzelAlanDegeri5" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StokOzelAlanDegeri6" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StokOzelAlanDegeri7" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StokOzelAlanDegeri8" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StokOzelAlanDegeri9" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StokOzelAlanDegeri10" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StokOzelAlanDegeri11" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StokOzelAlanDegeri12" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StokOzelAlanDegeri13" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StokOzelAlanDegeri14" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StokOzelAlanDegeri15" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="StokOzelAlanTanimlariTablosu">
+          <Key>
+            <PropertyRef Name="StokOzelAlanTanimlariID" />
+          </Key>
+          <Property Name="StokOzelAlanTanimlariID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StokTuru" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="StokOzelAlanTanimi1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StokOzelAlanTanimi2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StokOzelAlanTanimi3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StokOzelAlanTanimi4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StokOzelAlanTanimi5" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StokOzelAlanTanimi6" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StokOzelAlanTanimi7" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StokOzelAlanTanimi8" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StokOzelAlanTanimi9" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StokOzelAlanTanimi10" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StokOzelAlanTanimi11" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StokOzelAlanTanimi12" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StokOzelAlanTanimi13" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StokOzelAlanTanimi14" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StokOzelAlanTanimi15" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="StokTablosu">
+          <Key>
+            <PropertyRef Name="StokID" />
+          </Key>
+          <Property Name="StokID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StokKodu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="StokTuru" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="LotNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StokGrubu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StokAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Barkod" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StokMuhasebeGrubu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Kullanimda" Type="Boolean" />
+          <Property Name="TicariStokKodu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StokSinifi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HamStokKodu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ReferansStokKodu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="KopyalandigiSKodu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PartiBuyuklugu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SipTolerans" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PartiKatsayisi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="KaliteKodu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MinMaxStokDuzeyi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OnSure12" Type="Int32" />
+          <Property Name="En" Type="Int32" />
+          <Property Name="Boy" Type="Int32" />
+          <Property Name="Yukseklik" Type="Int32" />
+          <Property Name="DaraTipNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Aciklama" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Uyari" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UretimRotaNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MaliyetRotaNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SonIslemTuru" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SatinalmaTeminSekli" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TedarikciTakvimi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UretimLotoNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PaketlemeSekli" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OBr1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OBr2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OBr3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Fiyat" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="DovizBr" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="KDV" Type="Decimal" Precision="10" Scale="2" />
+        </EntityType>
+        <EntityType Name="StokTuruTablosu">
+          <Key>
+            <PropertyRef Name="StokTuruID" />
+          </Key>
+          <Property Name="StokTuruID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StokTuru" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="StokTurAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StokTurGrubu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="GirisSistemiKullanicilar">
+          <Key>
+            <PropertyRef Name="KullaniciID" />
+          </Key>
+          <Property Name="KullaniciID" Type="Int32" Nullable="false" />
+          <Property Name="KullaniciKodu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="KullaniciAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Sifre" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="KullanimdaMi" Type="Boolean" />
+          <Property Name="YetkiliDuzeyi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="ERPEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="SiparisFiyatListe" EntityType="Self.SiparisFiyatListe" />
+          <EntitySet Name="siparisOzelAlanDegerleri" EntityType="Self.siparisOzelAlanDegerleri" />
+          <EntitySet Name="SiparisozelAlanTanimlari" EntityType="Self.SiparisozelAlanTanimlari" />
+          <EntitySet Name="StokOzelAlanDegerleriTablosu" EntityType="Self.StokOzelAlanDegerleriTablosu" />
+          <EntitySet Name="StokOzelAlanTanimlariTablosu" EntityType="Self.StokOzelAlanTanimlariTablosu" />
+          <EntitySet Name="StokTablosu" EntityType="Self.StokTablosu" />
+          <EntitySet Name="StokTuruTablosu" EntityType="Self.StokTuruTablosu" />
+          <EntitySet Name="GirisSistemiKullanicilar" EntityType="Self.GirisSistemiKullanicilar" />
+          <EntitySet Name="SiparisCariNo" EntityType="ERPModel.SiparisCariNo" />
+          <EntitySet Name="SiparisSiparisiAlan" EntityType="ERPModel.SiparisSiparisiAlan" />
+          <EntitySet Name="View_SiparisSecenekler" EntityType="ERPModel.View_SiparisSecenekler" />
+          <EntitySet Name="SiparisHamEtiketNo" EntityType="ERPModel.SiparisHamEtiketNo" />
+          <EntitySet Name="Siparis" EntityType="ERPModel.Siparis" />
+          <EntitySet Name="SiparisEtiketNo" EntityType="ERPModel.SiparisEtiketNo" />
+          <EntitySet Name="SiparisDetay" EntityType="ERPModel.SiparisDetay" />
+          <EntitySet Name="View_SiparisListesi" EntityType="ERPModel.View_SiparisListesi" />
+          <EntitySet Name="denemekaydet" EntityType="ERPModel.denemekaydet" />
+          <EntitySet Name="SiparisDetay_StokAdiView" EntityType="ERPModel.SiparisDetay_StokAdiView" />
+        </EntityContainer>
+        <EntityType Name="SiparisCariNo">
+          <Key>
+            <PropertyRef Name="CariNoID" />
+          </Key>
+          <Property Name="CariNoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CariNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CariAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="SiparisSiparisiAlan">
+          <Key>
+            <PropertyRef Name="SiparisiAlanID" />
+          </Key>
+          <Property Name="SiparisiAlanID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SiparisiAlan" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SiparisiAlanAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="View_SiparisSecenekler">
+          <Key>
+            <PropertyRef Name="SiparisNo" />
+          </Key>
+          <Property Name="SiparisNo" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SiparisTuru" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="CariNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CariAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DuzenlemeTarihi" Type="DateTime" Precision="3" />
+          <Property Name="SiparisiAlan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SiparisiAlanAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SiparisiVeren" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="AkreditifNo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="SiparisHamEtiketNo">
+          <Key>
+            <PropertyRef Name="HamEtiketNoID" />
+          </Key>
+          <Property Name="HamEtiketNoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HamEtiketNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HamRaporAdi" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="HamRaporModulAdi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Siparis">
+          <Key>
+            <PropertyRef Name="SiparisID" />
+          </Key>
+          <Property Name="SiparisID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SiparisNo" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SiparisTuru" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="CariNo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SiparisiAlan" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SiparisiVeren" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DuzenlemeTarihi" Type="DateTime" Precision="3" />
+          <Property Name="StnSiparisNo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="FiyatListeNo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Aciklama" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="AlinmaTarihi" Type="DateTime" Precision="3" />
+          <Property Name="AkreditifNo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="OzelKod" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="EtiketNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HamEtiketNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DisSiparis" Type="Boolean" />
+          <Property Name="VadeGunu" Type="Int32" />
+        </EntityType>
+        <EntityType Name="SiparisEtiketNo">
+          <Key>
+            <PropertyRef Name="EtiketNoID" />
+          </Key>
+          <Property Name="EtiketNoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EtiketNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RaporAdi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="RaporModulAdi" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="SiparisDetay">
+          <Key>
+            <PropertyRef Name="SiparisDetayID" />
+          </Key>
+          <Property Name="SiparisDetayID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SiparisNo" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SN" Type="Int32" />
+          <Property Name="StokTuru" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StokKodu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StokAdi" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="LotNo" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Miktar1" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="MiktarBirimi1" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Miktar2" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="MiktarBirimi2" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Miktar3" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="MiktarBirimi3" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Fiyat1" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="FiyatKuru1" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Fiyat2" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="FiyatKuru2" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Fiyat3" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="FiyatKuru3" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Tutar" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="FiyatOB" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Kdv" Type="Decimal" Precision="3" Scale="2" />
+          <Property Name="PLGormesin" Type="Boolean" />
+          <Property Name="SKarMik" Type="Int32" />
+          <Property Name="Tol" Type="Int32" />
+          <Property Name="STol" Type="Int32" />
+          <Property Name="Isk" Type="Int32" />
+          <Property Name="Barkod" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="IslemGrubu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UreticiKodu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="KoleksiyonKodu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OdemeSekli" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PaketlemeSekli" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IlıskiliSipNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Aciklama" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="PlanlamaUyari" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="Termin" Type="DateTime" Precision="3" />
+          <Property Name="Hafta1" Type="Int32" />
+          <Property Name="PlTermini" Type="DateTime" Precision="3" />
+          <Property Name="Hafta2" Type="Int32" />
+          <Property Name="TebdilNedeni" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="UreticiAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NakliyeSekli" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TeslimSekli" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TebdilPartiNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IliskiliSipSNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Ilave" Type="Boolean" />
+          <Property Name="Tebdil" Type="Boolean" />
+          <Property Name="EtiketBilgi1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EtiketBilgi2" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EtiketBilgi3" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EtiketBilgi4" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EtiketBilgi5" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HPS" Type="Int32" />
+          <Property Name="AgirlikTol" Type="Int32" />
+          <Property Name="VadeGunu" Type="Int32" />
+          <Property Name="UretimRotaNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="STN_SİP_SIRA_NO" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Kursun" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Kusak" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SarimSekli" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Talimat" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SevkSekli" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="PosetAdedi" Type="Int32" />
+          <Property Name="EkIslem1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="EkIslem2" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Aksesuar" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="OrtaBolme" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="MusteriArpeEni" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="MusteriStokKodu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MusteriVaryant" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StokKartiIslemi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Onaylan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OnayTarihi" Type="DateTime" Precision="3" />
+          <Property Name="SevkTolerans" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StoktanKarsilananMiktar" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RotaNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="View_SiparisListesi">
+          <Key>
+            <PropertyRef Name="SiparisNo" />
+          </Key>
+          <Property Name="SiparisNo" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SN" Type="Int32" />
+          <Property Name="StokTuru" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StokKodu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StokAdi" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="MusteriStokKodu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MusteriVaryant" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Miktar1" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="MiktarBirimi1" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="StokKartiIslemi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Onaylan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="OnayTarihi" Type="DateTime" Precision="3" />
+          <Property Name="Kursun" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Kusak" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SarimSekli" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Talimat" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="SevkSekli" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ozelAlan3Adi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PosetAdedi" Type="Int32" />
+          <Property Name="ozelAlan4Adi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ozelAlan5Adi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ozelAlan6Adi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PlTermini" Type="DateTime" Precision="3" />
+          <Property Name="PlanlamaUyari" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="UreticiAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SevkTolerans" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StoktanKarsilananMiktar" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Tebdil" Type="Boolean" />
+          <Property Name="TebdilPartiNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Termin" Type="DateTime" Precision="3" />
+          <Property Name="TeslimSekli" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Tol" Type="Int32" />
+          <Property Name="Tutar" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="Aciklama" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="VadeGunu" Type="Int32" />
+          <Property Name="RotaNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="denemekaydet">
+          <Key>
+            <PropertyRef Name="RaporSiparisID" />
+          </Key>
+          <Property Name="RaporSiparisID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RaporNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="RaporAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="GroupAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FrxDosyaYolu" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="SiparisDetay_StokAdiView">
+          <Key>
+            <PropertyRef Name="SiparisDetayLotNoID" />
+          </Key>
+          <Property Name="SiparisDetayLotNoID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ERPModelStoreContainer" CdmEntityContainer="ERPEntities">
+          <EntitySetMapping Name="SiparisFiyatListe">
+            <EntityTypeMapping TypeName="ERPModel.SiparisFiyatListe">
+              <MappingFragment StoreEntitySet="SiparisFiyatListe">
+                <ScalarProperty Name="FiyatListeNo" ColumnName="FiyatListeNo" />
+                <ScalarProperty Name="FiyatListeAdi" ColumnName="FiyatListeAdi" />
+                <ScalarProperty Name="NakliyeSekli" ColumnName="NakliyeSekli" />
+                <ScalarProperty Name="OdemeSekli" ColumnName="OdemeSekli" />
+                <ScalarProperty Name="TeslimSekli" ColumnName="TeslimSekli" />
+                <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="siparisOzelAlanDegerleri">
+            <EntityTypeMapping TypeName="ERPModel.siparisOzelAlanDegerleri">
+              <MappingFragment StoreEntitySet="siparisOzelAlanDegerleri">
+                <ScalarProperty Name="OzelAlanID" ColumnName="OzelAlanID" />
+                <ScalarProperty Name="SiparisNo" ColumnName="SiparisNo" />
+                <ScalarProperty Name="siparisSiraNo" ColumnName="siparisSiraNo" />
+                <ScalarProperty Name="ozelAlan1Degeri" ColumnName="ozelAlan1Degeri" />
+                <ScalarProperty Name="ozelAlan2Degeri" ColumnName="ozelAlan2Degeri" />
+                <ScalarProperty Name="ozelAlan3Degeri" ColumnName="ozelAlan3Degeri" />
+                <ScalarProperty Name="ozelAlan4Degeri" ColumnName="ozelAlan4Degeri" />
+                <ScalarProperty Name="ozelAlan5Degeri" ColumnName="ozelAlan5Degeri" />
+                <ScalarProperty Name="ozelAlan6Degeri" ColumnName="ozelAlan6Degeri" />
+                <ScalarProperty Name="ozelAlan7Degeri" ColumnName="ozelAlan7Degeri" />
+                <ScalarProperty Name="ozelAlan8Degeri" ColumnName="ozelAlan8Degeri" />
+                <ScalarProperty Name="ozelAlan9Degeri" ColumnName="ozelAlan9Degeri" />
+                <ScalarProperty Name="ozelAlan10Degeri" ColumnName="ozelAlan10Degeri" />
+                <ScalarProperty Name="ozelAlan11Degeri" ColumnName="ozelAlan11Degeri" />
+                <ScalarProperty Name="ozelAlan12Degeri" ColumnName="ozelAlan12Degeri" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SiparisozelAlanTanimlari">
+            <EntityTypeMapping TypeName="ERPModel.SiparisozelAlanTanimlari">
+              <MappingFragment StoreEntitySet="SiparisozelAlanTanimlari">
+                <ScalarProperty Name="ozelAlanTanimID" ColumnName="ozelAlanTanimID" />
+                <ScalarProperty Name="StokTuru" ColumnName="StokTuru" />
+                <ScalarProperty Name="ozelAlan1adi" ColumnName="ozelAlan1adi" />
+                <ScalarProperty Name="ozelAlan2Adi" ColumnName="ozelAlan2Adi" />
+                <ScalarProperty Name="ozelAlan3Adi" ColumnName="ozelAlan3Adi" />
+                <ScalarProperty Name="ozelAlan4Adi" ColumnName="ozelAlan4Adi" />
+                <ScalarProperty Name="ozelAlan5Adi" ColumnName="ozelAlan5Adi" />
+                <ScalarProperty Name="ozelAlan6Adi" ColumnName="ozelAlan6Adi" />
+                <ScalarProperty Name="ozelAlan7Adi" ColumnName="ozelAlan7Adi" />
+                <ScalarProperty Name="ozelAlan8Adi" ColumnName="ozelAlan8Adi" />
+                <ScalarProperty Name="ozelAlan9Adi" ColumnName="ozelAlan9Adi" />
+                <ScalarProperty Name="ozelAlan10Adi" ColumnName="ozelAlan10Adi" />
+                <ScalarProperty Name="ozelAlan11Adi" ColumnName="ozelAlan11Adi" />
+                <ScalarProperty Name="ozelAlan12Adi" ColumnName="ozelAlan12Adi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StokOzelAlanDegerleriTablosu">
+            <EntityTypeMapping TypeName="ERPModel.StokOzelAlanDegerleriTablosu">
+              <MappingFragment StoreEntitySet="StokOzelAlanDegerleriTablosu">
+                <ScalarProperty Name="StokOzelAlanDegerleriID" ColumnName="StokOzelAlanDegerleriID" />
+                <ScalarProperty Name="StokKodu" ColumnName="StokKodu" />
+                <ScalarProperty Name="StokOzelAlanDegeri1" ColumnName="StokOzelAlanDegeri1" />
+                <ScalarProperty Name="StokOzelAlanDegeri2" ColumnName="StokOzelAlanDegeri2" />
+                <ScalarProperty Name="StokOzelAlanDegeri3" ColumnName="StokOzelAlanDegeri3" />
+                <ScalarProperty Name="StokOzelAlanDegeri4" ColumnName="StokOzelAlanDegeri4" />
+                <ScalarProperty Name="StokOzelAlanDegeri5" ColumnName="StokOzelAlanDegeri5" />
+                <ScalarProperty Name="StokOzelAlanDegeri6" ColumnName="StokOzelAlanDegeri6" />
+                <ScalarProperty Name="StokOzelAlanDegeri7" ColumnName="StokOzelAlanDegeri7" />
+                <ScalarProperty Name="StokOzelAlanDegeri8" ColumnName="StokOzelAlanDegeri8" />
+                <ScalarProperty Name="StokOzelAlanDegeri9" ColumnName="StokOzelAlanDegeri9" />
+                <ScalarProperty Name="StokOzelAlanDegeri10" ColumnName="StokOzelAlanDegeri10" />
+                <ScalarProperty Name="StokOzelAlanDegeri11" ColumnName="StokOzelAlanDegeri11" />
+                <ScalarProperty Name="StokOzelAlanDegeri12" ColumnName="StokOzelAlanDegeri12" />
+                <ScalarProperty Name="StokOzelAlanDegeri13" ColumnName="StokOzelAlanDegeri13" />
+                <ScalarProperty Name="StokOzelAlanDegeri14" ColumnName="StokOzelAlanDegeri14" />
+                <ScalarProperty Name="StokOzelAlanDegeri15" ColumnName="StokOzelAlanDegeri15" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StokOzelAlanTanimlariTablosu">
+            <EntityTypeMapping TypeName="ERPModel.StokOzelAlanTanimlariTablosu">
+              <MappingFragment StoreEntitySet="StokOzelAlanTanimlariTablosu">
+                <ScalarProperty Name="StokOzelAlanTanimlariID" ColumnName="StokOzelAlanTanimlariID" />
+                <ScalarProperty Name="StokTuru" ColumnName="StokTuru" />
+                <ScalarProperty Name="StokOzelAlanTanimi1" ColumnName="StokOzelAlanTanimi1" />
+                <ScalarProperty Name="StokOzelAlanTanimi2" ColumnName="StokOzelAlanTanimi2" />
+                <ScalarProperty Name="StokOzelAlanTanimi3" ColumnName="StokOzelAlanTanimi3" />
+                <ScalarProperty Name="StokOzelAlanTanimi4" ColumnName="StokOzelAlanTanimi4" />
+                <ScalarProperty Name="StokOzelAlanTanimi5" ColumnName="StokOzelAlanTanimi5" />
+                <ScalarProperty Name="StokOzelAlanTanimi6" ColumnName="StokOzelAlanTanimi6" />
+                <ScalarProperty Name="StokOzelAlanTanimi7" ColumnName="StokOzelAlanTanimi7" />
+                <ScalarProperty Name="StokOzelAlanTanimi8" ColumnName="StokOzelAlanTanimi8" />
+                <ScalarProperty Name="StokOzelAlanTanimi9" ColumnName="StokOzelAlanTanimi9" />
+                <ScalarProperty Name="StokOzelAlanTanimi10" ColumnName="StokOzelAlanTanimi10" />
+                <ScalarProperty Name="StokOzelAlanTanimi11" ColumnName="StokOzelAlanTanimi11" />
+                <ScalarProperty Name="StokOzelAlanTanimi12" ColumnName="StokOzelAlanTanimi12" />
+                <ScalarProperty Name="StokOzelAlanTanimi13" ColumnName="StokOzelAlanTanimi13" />
+                <ScalarProperty Name="StokOzelAlanTanimi14" ColumnName="StokOzelAlanTanimi14" />
+                <ScalarProperty Name="StokOzelAlanTanimi15" ColumnName="StokOzelAlanTanimi15" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StokTablosu">
+            <EntityTypeMapping TypeName="ERPModel.StokTablosu">
+              <MappingFragment StoreEntitySet="StokTablosu">
+                <ScalarProperty Name="StokID" ColumnName="StokID" />
+                <ScalarProperty Name="StokKodu" ColumnName="StokKodu" />
+                <ScalarProperty Name="StokTuru" ColumnName="StokTuru" />
+                <ScalarProperty Name="LotNo" ColumnName="LotNo" />
+                <ScalarProperty Name="StokGrubu" ColumnName="StokGrubu" />
+                <ScalarProperty Name="StokAdi" ColumnName="StokAdi" />
+                <ScalarProperty Name="Barkod" ColumnName="Barkod" />
+                <ScalarProperty Name="StokMuhasebeGrubu" ColumnName="StokMuhasebeGrubu" />
+                <ScalarProperty Name="Kullanimda" ColumnName="Kullanimda" />
+                <ScalarProperty Name="TicariStokKodu" ColumnName="TicariStokKodu" />
+                <ScalarProperty Name="StokSinifi" ColumnName="StokSinifi" />
+                <ScalarProperty Name="HamStokKodu" ColumnName="HamStokKodu" />
+                <ScalarProperty Name="ReferansStokKodu" ColumnName="ReferansStokKodu" />
+                <ScalarProperty Name="KopyalandigiSKodu" ColumnName="KopyalandigiSKodu" />
+                <ScalarProperty Name="PartiBuyuklugu" ColumnName="PartiBuyuklugu" />
+                <ScalarProperty Name="SipTolerans" ColumnName="SipTolerans" />
+                <ScalarProperty Name="PartiKatsayisi" ColumnName="PartiKatsayisi" />
+                <ScalarProperty Name="KaliteKodu" ColumnName="KaliteKodu" />
+                <ScalarProperty Name="MinMaxStokDuzeyi" ColumnName="MinMaxStokDuzeyi" />
+                <ScalarProperty Name="OnSure12" ColumnName="OnSure12" />
+                <ScalarProperty Name="En" ColumnName="En" />
+                <ScalarProperty Name="Boy" ColumnName="Boy" />
+                <ScalarProperty Name="Yukseklik" ColumnName="Yukseklik" />
+                <ScalarProperty Name="DaraTipNo" ColumnName="DaraTipNo" />
+                <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+                <ScalarProperty Name="Uyari" ColumnName="Uyari" />
+                <ScalarProperty Name="UretimRotaNo" ColumnName="UretimRotaNo" />
+                <ScalarProperty Name="MaliyetRotaNo" ColumnName="MaliyetRotaNo" />
+                <ScalarProperty Name="SonIslemTuru" ColumnName="SonIslemTuru" />
+                <ScalarProperty Name="SatinalmaTeminSekli" ColumnName="SatinalmaTeminSekli" />
+                <ScalarProperty Name="TedarikciTakvimi" ColumnName="TedarikciTakvimi" />
+                <ScalarProperty Name="UretimLotoNo" ColumnName="UretimLotoNo" />
+                <ScalarProperty Name="PaketlemeSekli" ColumnName="PaketlemeSekli" />
+                <ScalarProperty Name="OBr1" ColumnName="OBr1" />
+                <ScalarProperty Name="OBr2" ColumnName="OBr2" />
+                <ScalarProperty Name="OBr3" ColumnName="OBr3" />
+                <ScalarProperty Name="Fiyat" ColumnName="Fiyat" />
+                <ScalarProperty Name="DovizBr" ColumnName="DovizBr" />
+                <ScalarProperty Name="KDV" ColumnName="KDV" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StokTuruTablosu">
+            <EntityTypeMapping TypeName="ERPModel.StokTuruTablosu">
+              <MappingFragment StoreEntitySet="StokTuruTablosu">
+                <ScalarProperty Name="StokTuruID" ColumnName="StokTuruID" />
+                <ScalarProperty Name="StokTuru" ColumnName="StokTuru" />
+                <ScalarProperty Name="StokTurAdi" ColumnName="StokTurAdi" />
+                <ScalarProperty Name="StokTurGrubu" ColumnName="StokTurGrubu" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GirisSistemiKullanicilar">
+            <EntityTypeMapping TypeName="ERPModel.GirisSistemiKullanicilar">
+              <MappingFragment StoreEntitySet="GirisSistemiKullanicilar">
+                <ScalarProperty Name="KullaniciID" ColumnName="KullaniciID" />
+                <ScalarProperty Name="KullaniciKodu" ColumnName="KullaniciKodu" />
+                <ScalarProperty Name="KullaniciAdi" ColumnName="KullaniciAdi" />
+                <ScalarProperty Name="Sifre" ColumnName="Sifre" />
+                <ScalarProperty Name="KullanimdaMi" ColumnName="KullanimdaMi" />
+                <ScalarProperty Name="YetkiliDuzeyi" ColumnName="YetkiliDuzeyi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SiparisCariNo">
+            <EntityTypeMapping TypeName="ERPModel.SiparisCariNo">
+              <MappingFragment StoreEntitySet="SiparisCariNo">
+                <ScalarProperty Name="CariAdi" ColumnName="CariAdi" />
+                <ScalarProperty Name="CariNo" ColumnName="CariNo" />
+                <ScalarProperty Name="CariNoID" ColumnName="CariNoID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SiparisSiparisiAlan">
+            <EntityTypeMapping TypeName="ERPModel.SiparisSiparisiAlan">
+              <MappingFragment StoreEntitySet="SiparisSiparisiAlan">
+                <ScalarProperty Name="SiparisiAlanAdi" ColumnName="SiparisiAlanAdi" />
+                <ScalarProperty Name="SiparisiAlan" ColumnName="SiparisiAlan" />
+                <ScalarProperty Name="SiparisiAlanID" ColumnName="SiparisiAlanID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_SiparisSecenekler">
+            <EntityTypeMapping TypeName="ERPModel.View_SiparisSecenekler">
+              <MappingFragment StoreEntitySet="View_SiparisSecenekler">
+                <ScalarProperty Name="AkreditifNo" ColumnName="AkreditifNo" />
+                <ScalarProperty Name="SiparisiVeren" ColumnName="SiparisiVeren" />
+                <ScalarProperty Name="SiparisiAlanAdi" ColumnName="SiparisiAlanAdi" />
+                <ScalarProperty Name="SiparisiAlan" ColumnName="SiparisiAlan" />
+                <ScalarProperty Name="DuzenlemeTarihi" ColumnName="DuzenlemeTarihi" />
+                <ScalarProperty Name="CariAdi" ColumnName="CariAdi" />
+                <ScalarProperty Name="CariNo" ColumnName="CariNo" />
+                <ScalarProperty Name="SiparisTuru" ColumnName="SiparisTuru" />
+                <ScalarProperty Name="SiparisNo" ColumnName="SiparisNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SiparisHamEtiketNo">
+            <EntityTypeMapping TypeName="ERPModel.SiparisHamEtiketNo">
+              <MappingFragment StoreEntitySet="SiparisHamEtiketNo">
+                <ScalarProperty Name="HamRaporModulAdi" ColumnName="HamRaporModulAdi" />
+                <ScalarProperty Name="HamRaporAdi" ColumnName="HamRaporAdi" />
+                <ScalarProperty Name="HamEtiketNo" ColumnName="HamEtiketNo" />
+                <ScalarProperty Name="HamEtiketNoID" ColumnName="HamEtiketNoID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Siparis">
+            <EntityTypeMapping TypeName="ERPModel.Siparis">
+              <MappingFragment StoreEntitySet="Siparis">
+                <ScalarProperty Name="VadeGunu" ColumnName="VadeGunu" />
+                <ScalarProperty Name="DisSiparis" ColumnName="DisSiparis" />
+                <ScalarProperty Name="HamEtiketNo" ColumnName="HamEtiketNo" />
+                <ScalarProperty Name="EtiketNo" ColumnName="EtiketNo" />
+                <ScalarProperty Name="OzelKod" ColumnName="OzelKod" />
+                <ScalarProperty Name="AkreditifNo" ColumnName="AkreditifNo" />
+                <ScalarProperty Name="AlinmaTarihi" ColumnName="AlinmaTarihi" />
+                <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+                <ScalarProperty Name="FiyatListeNo" ColumnName="FiyatListeNo" />
+                <ScalarProperty Name="StnSiparisNo" ColumnName="StnSiparisNo" />
+                <ScalarProperty Name="DuzenlemeTarihi" ColumnName="DuzenlemeTarihi" />
+                <ScalarProperty Name="SiparisiVeren" ColumnName="SiparisiVeren" />
+                <ScalarProperty Name="SiparisiAlan" ColumnName="SiparisiAlan" />
+                <ScalarProperty Name="CariNo" ColumnName="CariNo" />
+                <ScalarProperty Name="SiparisTuru" ColumnName="SiparisTuru" />
+                <ScalarProperty Name="SiparisNo" ColumnName="SiparisNo" />
+                <ScalarProperty Name="SiparisID" ColumnName="SiparisID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SiparisEtiketNo">
+            <EntityTypeMapping TypeName="ERPModel.SiparisEtiketNo">
+              <MappingFragment StoreEntitySet="SiparisEtiketNo">
+                <ScalarProperty Name="RaporModulAdi" ColumnName="RaporModulAdi" />
+                <ScalarProperty Name="RaporAdi" ColumnName="RaporAdi" />
+                <ScalarProperty Name="EtiketNo" ColumnName="EtiketNo" />
+                <ScalarProperty Name="EtiketNoID" ColumnName="EtiketNoID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SiparisDetay">
+            <EntityTypeMapping TypeName="ERPModel.SiparisDetay">
+              <MappingFragment StoreEntitySet="SiparisDetay">
+                <ScalarProperty Name="RotaNo" ColumnName="RotaNo" />
+                <ScalarProperty Name="StoktanKarsilananMiktar" ColumnName="StoktanKarsilananMiktar" />
+                <ScalarProperty Name="SevkTolerans" ColumnName="SevkTolerans" />
+                <ScalarProperty Name="OnayTarihi" ColumnName="OnayTarihi" />
+                <ScalarProperty Name="Onaylan" ColumnName="Onaylan" />
+                <ScalarProperty Name="StokKartiIslemi" ColumnName="StokKartiIslemi" />
+                <ScalarProperty Name="MusteriVaryant" ColumnName="MusteriVaryant" />
+                <ScalarProperty Name="MusteriStokKodu" ColumnName="MusteriStokKodu" />
+                <ScalarProperty Name="MusteriArpeEni" ColumnName="MusteriArpeEni" />
+                <ScalarProperty Name="OrtaBolme" ColumnName="OrtaBolme" />
+                <ScalarProperty Name="Aksesuar" ColumnName="Aksesuar" />
+                <ScalarProperty Name="EkIslem2" ColumnName="EkIslem2" />
+                <ScalarProperty Name="EkIslem1" ColumnName="EkIslem1" />
+                <ScalarProperty Name="PosetAdedi" ColumnName="PosetAdedi" />
+                <ScalarProperty Name="SevkSekli" ColumnName="SevkSekli" />
+                <ScalarProperty Name="Talimat" ColumnName="Talimat" />
+                <ScalarProperty Name="SarimSekli" ColumnName="SarimSekli" />
+                <ScalarProperty Name="Kusak" ColumnName="Kusak" />
+                <ScalarProperty Name="Kursun" ColumnName="Kursun" />
+                <ScalarProperty Name="STN_SİP_SIRA_NO" ColumnName="STN_SİP_SIRA_NO" />
+                <ScalarProperty Name="UretimRotaNo" ColumnName="UretimRotaNo" />
+                <ScalarProperty Name="VadeGunu" ColumnName="VadeGunu" />
+                <ScalarProperty Name="AgirlikTol" ColumnName="AgirlikTol" />
+                <ScalarProperty Name="HPS" ColumnName="HPS" />
+                <ScalarProperty Name="EtiketBilgi5" ColumnName="EtiketBilgi5" />
+                <ScalarProperty Name="EtiketBilgi4" ColumnName="EtiketBilgi4" />
+                <ScalarProperty Name="EtiketBilgi3" ColumnName="EtiketBilgi3" />
+                <ScalarProperty Name="EtiketBilgi2" ColumnName="EtiketBilgi2" />
+                <ScalarProperty Name="EtiketBilgi1" ColumnName="EtiketBilgi1" />
+                <ScalarProperty Name="Tebdil" ColumnName="Tebdil" />
+                <ScalarProperty Name="Ilave" ColumnName="Ilave" />
+                <ScalarProperty Name="IliskiliSipSNo" ColumnName="IliskiliSipSNo" />
+                <ScalarProperty Name="TebdilPartiNo" ColumnName="TebdilPartiNo" />
+                <ScalarProperty Name="TeslimSekli" ColumnName="TeslimSekli" />
+                <ScalarProperty Name="NakliyeSekli" ColumnName="NakliyeSekli" />
+                <ScalarProperty Name="UreticiAdi" ColumnName="UreticiAdi" />
+                <ScalarProperty Name="TebdilNedeni" ColumnName="TebdilNedeni" />
+                <ScalarProperty Name="Hafta2" ColumnName="Hafta2" />
+                <ScalarProperty Name="PlTermini" ColumnName="PlTermini" />
+                <ScalarProperty Name="Hafta1" ColumnName="Hafta1" />
+                <ScalarProperty Name="Termin" ColumnName="Termin" />
+                <ScalarProperty Name="PlanlamaUyari" ColumnName="PlanlamaUyari" />
+                <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+                <ScalarProperty Name="IlıskiliSipNo" ColumnName="IlıskiliSipNo" />
+                <ScalarProperty Name="PaketlemeSekli" ColumnName="PaketlemeSekli" />
+                <ScalarProperty Name="OdemeSekli" ColumnName="OdemeSekli" />
+                <ScalarProperty Name="KoleksiyonKodu" ColumnName="KoleksiyonKodu" />
+                <ScalarProperty Name="UreticiKodu" ColumnName="UreticiKodu" />
+                <ScalarProperty Name="IslemGrubu" ColumnName="IslemGrubu" />
+                <ScalarProperty Name="Barkod" ColumnName="Barkod" />
+                <ScalarProperty Name="Isk" ColumnName="Isk" />
+                <ScalarProperty Name="STol" ColumnName="STol" />
+                <ScalarProperty Name="Tol" ColumnName="Tol" />
+                <ScalarProperty Name="SKarMik" ColumnName="SKarMik" />
+                <ScalarProperty Name="PLGormesin" ColumnName="PLGormesin" />
+                <ScalarProperty Name="Kdv" ColumnName="Kdv" />
+                <ScalarProperty Name="FiyatOB" ColumnName="FiyatOB" />
+                <ScalarProperty Name="Tutar" ColumnName="Tutar" />
+                <ScalarProperty Name="FiyatKuru3" ColumnName="FiyatKuru3" />
+                <ScalarProperty Name="Fiyat3" ColumnName="Fiyat3" />
+                <ScalarProperty Name="FiyatKuru2" ColumnName="FiyatKuru2" />
+                <ScalarProperty Name="Fiyat2" ColumnName="Fiyat2" />
+                <ScalarProperty Name="FiyatKuru1" ColumnName="FiyatKuru1" />
+                <ScalarProperty Name="Fiyat1" ColumnName="Fiyat1" />
+                <ScalarProperty Name="MiktarBirimi3" ColumnName="MiktarBirimi3" />
+                <ScalarProperty Name="Miktar3" ColumnName="Miktar3" />
+                <ScalarProperty Name="MiktarBirimi2" ColumnName="MiktarBirimi2" />
+                <ScalarProperty Name="Miktar2" ColumnName="Miktar2" />
+                <ScalarProperty Name="MiktarBirimi1" ColumnName="MiktarBirimi1" />
+                <ScalarProperty Name="Miktar1" ColumnName="Miktar1" />
+                <ScalarProperty Name="LotNo" ColumnName="LotNo" />
+                <ScalarProperty Name="StokAdi" ColumnName="StokAdi" />
+                <ScalarProperty Name="StokKodu" ColumnName="StokKodu" />
+                <ScalarProperty Name="StokTuru" ColumnName="StokTuru" />
+                <ScalarProperty Name="SN" ColumnName="SN" />
+                <ScalarProperty Name="SiparisNo" ColumnName="SiparisNo" />
+                <ScalarProperty Name="SiparisDetayID" ColumnName="SiparisDetayID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="View_SiparisListesi">
+            <EntityTypeMapping TypeName="ERPModel.View_SiparisListesi">
+              <MappingFragment StoreEntitySet="View_SiparisListesi">
+                <ScalarProperty Name="RotaNo" ColumnName="RotaNo" />
+                <ScalarProperty Name="VadeGunu" ColumnName="VadeGunu" />
+                <ScalarProperty Name="Aciklama" ColumnName="Aciklama" />
+                <ScalarProperty Name="Tutar" ColumnName="Tutar" />
+                <ScalarProperty Name="Tol" ColumnName="Tol" />
+                <ScalarProperty Name="TeslimSekli" ColumnName="TeslimSekli" />
+                <ScalarProperty Name="Termin" ColumnName="Termin" />
+                <ScalarProperty Name="TebdilPartiNo" ColumnName="TebdilPartiNo" />
+                <ScalarProperty Name="Tebdil" ColumnName="Tebdil" />
+                <ScalarProperty Name="StoktanKarsilananMiktar" ColumnName="StoktanKarsilananMiktar" />
+                <ScalarProperty Name="SevkTolerans" ColumnName="SevkTolerans" />
+                <ScalarProperty Name="UreticiAdi" ColumnName="UreticiAdi" />
+                <ScalarProperty Name="PlanlamaUyari" ColumnName="PlanlamaUyari" />
+                <ScalarProperty Name="PlTermini" ColumnName="PlTermini" />
+                <ScalarProperty Name="ozelAlan6Adi" ColumnName="ozelAlan6Adi" />
+                <ScalarProperty Name="ozelAlan5Adi" ColumnName="ozelAlan5Adi" />
+                <ScalarProperty Name="ozelAlan4Adi" ColumnName="ozelAlan4Adi" />
+                <ScalarProperty Name="PosetAdedi" ColumnName="PosetAdedi" />
+                <ScalarProperty Name="ozelAlan3Adi" ColumnName="ozelAlan3Adi" />
+                <ScalarProperty Name="SevkSekli" ColumnName="SevkSekli" />
+                <ScalarProperty Name="Talimat" ColumnName="Talimat" />
+                <ScalarProperty Name="SarimSekli" ColumnName="SarimSekli" />
+                <ScalarProperty Name="Kusak" ColumnName="Kusak" />
+                <ScalarProperty Name="Kursun" ColumnName="Kursun" />
+                <ScalarProperty Name="OnayTarihi" ColumnName="OnayTarihi" />
+                <ScalarProperty Name="Onaylan" ColumnName="Onaylan" />
+                <ScalarProperty Name="StokKartiIslemi" ColumnName="StokKartiIslemi" />
+                <ScalarProperty Name="MiktarBirimi1" ColumnName="MiktarBirimi1" />
+                <ScalarProperty Name="Miktar1" ColumnName="Miktar1" />
+                <ScalarProperty Name="MusteriVaryant" ColumnName="MusteriVaryant" />
+                <ScalarProperty Name="MusteriStokKodu" ColumnName="MusteriStokKodu" />
+                <ScalarProperty Name="StokAdi" ColumnName="StokAdi" />
+                <ScalarProperty Name="StokKodu" ColumnName="StokKodu" />
+                <ScalarProperty Name="StokTuru" ColumnName="StokTuru" />
+                <ScalarProperty Name="SN" ColumnName="SN" />
+                <ScalarProperty Name="SiparisNo" ColumnName="SiparisNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="denemekaydet">
+            <EntityTypeMapping TypeName="ERPModel.denemekaydet">
+              <MappingFragment StoreEntitySet="denemekaydet">
+                <ScalarProperty Name="FrxDosyaYolu" ColumnName="FrxDosyaYolu" />
+                <ScalarProperty Name="GroupAdi" ColumnName="GroupAdi" />
+                <ScalarProperty Name="RaporAdi" ColumnName="RaporAdi" />
+                <ScalarProperty Name="RaporNo" ColumnName="RaporNo" />
+                <ScalarProperty Name="RaporSiparisID" ColumnName="RaporSiparisID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SiparisDetay_StokAdiView">
+            <EntityTypeMapping TypeName="ERPModel.SiparisDetay_StokAdiView">
+              <MappingFragment StoreEntitySet="SiparisDetay_StokAdiView">
+                <ScalarProperty Name="SiparisDetayLotNoID" ColumnName="SiparisDetayLotNoID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

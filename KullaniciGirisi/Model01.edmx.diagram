@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c449e6053ef54b9691ec5cbb67c7c668" Name="Diagram1" ZoomLevel="30">
+        <EntityTypeShape EntityType="ERPModel.SiparisFiyatListe" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPModel.siparisOzelAlanDegerleri" Width="1.875" PointX="6.625" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPModel.SiparisozelAlanTanimlari" Width="1.5" PointX="4.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPModel.StokOzelAlanDegerleriTablosu" Width="1.5" PointX="6.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPModel.StokOzelAlanTanimlariTablosu" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPModel.StokTablosu" Width="1.5" PointX="8.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPModel.StokTuruTablosu" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPModel.GirisSistemiKullanicilar" Width="1.5" PointX="10.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ERPModel.SiparisCariNo" Width="1.5" PointX="5.375" PointY="11.75" />
+        <EntityTypeShape EntityType="ERPModel.SiparisSiparisiAlan" Width="2" PointX="11.375" PointY="9.75" />
+        <EntityTypeShape EntityType="ERPModel.View_SiparisSecenekler" Width="2.875" PointX="11.375" PointY="12.75" />
+        <EntityTypeShape EntityType="ERPModel.SiparisHamEtiketNo" Width="2.75" PointX="13.375" PointY="0.75" />
+        <EntityTypeShape EntityType="ERPModel.Siparis" Width="1.5" PointX="13.375" PointY="3.75" />
+        <EntityTypeShape EntityType="ERPModel.SiparisEtiketNo" Width="1.5" PointX="5.375" PointY="14.75" />
+        <EntityTypeShape EntityType="ERPModel.SiparisDetay" Width="1.5" PointX="2.125" PointY="0.625" />
+        <EntityTypeShape EntityType="ERPModel.View_SiparisListesi" Width="1.5" PointX="15.375" PointY="3.75" />
+        <EntityTypeShape EntityType="ERPModel.denemekaydet" Width="1.5" PointX="15.375" PointY="12.75" />
+        <EntityTypeShape EntityType="ERPModel.SiparisDetay_StokAdiView" Width="1.5" PointX="15.375" PointY="15.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
